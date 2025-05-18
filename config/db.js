@@ -1,7 +1,6 @@
-const moongoose = require("moongoose");
+const mongoose = require("mongoose");
 
-const Schema = moongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const Schema = mongoose.Schema;
 
 const FormType = new Schema({
     name: { 
@@ -21,11 +20,13 @@ const FormType = new Schema({
         default: Date.now
     },
 
-    formId : ObjectId
+    formId: {
+        type: Schema.Types.ObjectId
+    }
 
 });
 
-const FormModel = moongoose.Model("Form", FormType);
+const FormModel = mongoose.model("Form", FormType);
 
 
 module.exports = {
